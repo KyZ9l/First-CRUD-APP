@@ -51,7 +51,8 @@ public List<Book> serchByTitle (String  query) {
 
 
     @Transactional
-    public void save(Book book){bookRepositories.save(book);}
+    public void save(Book book){
+        bookRepositories.save(book);}
 
 
     @Transactional

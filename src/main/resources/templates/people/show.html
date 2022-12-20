@@ -19,9 +19,11 @@
   <table th:each="book: ${books}">
       <tr>
           <td>
-              <span th:text="${book.getTitle() + ', ' + book.getAuthor() +', ' + book.getYear()}"
-               th:style="${book.isExpired()} ? 'color:red : color :black'"> book
-              </span>
+             <ul>
+                <li> <span th:text="${book.getTitle() + ', ' + book.getAuthor() +', ' + book.getYear()}"
+                           th:style="${book.isExpired()} ? 'color: red' : 'color : black'"> book</span>
+                </li>
+             </ul>
           </td>
       </tr>
   </table>
@@ -31,6 +33,7 @@
 <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
     <input type="submit" value="Edit"/>
 </form>
+<br/>
 
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
   <input type="submit" value="Delete"/>

@@ -35,7 +35,7 @@ public class PeopleController {
     {
         model.addAttribute("person", peopleService.findOne(id));
         model.addAttribute("books", peopleService.getBooksByPersonId(id));
-
+        System.out.println();
         return "people/show";
     }
 
