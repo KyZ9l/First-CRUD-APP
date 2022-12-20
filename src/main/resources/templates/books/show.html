@@ -12,14 +12,15 @@
 <div th:if="${owner}">
   <span>The book is now in the possession of</span> <span th:text="${owner.getFullName()}">Person name</span>
 
-  <form th:method="PATCH" th:action="@{books/{id}/release(id=${book.getId()})}">
+  <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
     <input type="submit" value="Return the book">
   </form>
 </div>
 
 <div th:if="${people}">
-    <span>This book is free to whom to assign it?</span>
-  <form method="PATCH" th:action="@{books/{id}/assign(id=${book.getId()})}">
+    <span>This book is free!  Whom to assign it?</span>
+  <form method="PATCH" th:action="@{/books/{id}/assign(id=${book.getId()})}">
+      <label for="person">Сhoose a person</label>
     <select th:object="${person}" th:field="*{id}" id="person">
       <option th:each="person:${people}" th:value="${person.getId()}" th:text="${person.getFullName()}">
       </option>

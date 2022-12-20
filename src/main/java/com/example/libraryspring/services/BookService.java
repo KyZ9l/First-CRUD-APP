@@ -46,7 +46,8 @@ public class BookService {
         return foundBook.orElse(null);
     }
 
-public List<Book> serchByTitle (String  query) {return bookRepositories.findByTitleStartingWith(query);}
+public List<Book> serchByTitle (String  query) {
+        return bookRepositories.findByTitleStartingWith(query);}
 
 
     @Transactional
