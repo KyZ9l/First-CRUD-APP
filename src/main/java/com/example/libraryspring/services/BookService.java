@@ -54,13 +54,13 @@ public List<Book> serchByTitle (String  query) {return bookRepositories.findByTi
 
 
     @Transactional
-    public void update(int id, Book book)
+    public void update(int id, Book updatedBook)
     {
         Book bookToUpdate = bookRepositories.findById(id).get();
 
-        book.setId(id);
-        book.setOwner(bookToUpdate.getOwner());
-        bookRepositories.save(book);
+        updatedBook.setId(id);
+        updatedBook.setOwner(bookToUpdate.getOwner());
+        bookRepositories.save(updatedBook);
     }
 
     @Transactional
@@ -81,8 +81,7 @@ public List<Book> serchByTitle (String  query) {return bookRepositories.findByTi
                 book -> {
                     book.setOwner(null);
                     book.setTakenAt(null);
-                }
-        );
+                });
     }
 
 
